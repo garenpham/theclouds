@@ -21,20 +21,20 @@ module.exports = {
 						transform: 'translateX(0)',
 					},
 				},
-				'fade-in-down': {
+				'fade-in-left': {
 					'0%': {
 						opacity: '0.4',
-						transform: 'translateY(-2px)',
+						transform: 'translateX(-4px)',
 					},
 					'100%': {
 						opacity: '1',
-						transform: 'translateY(0px)',
+						transform: 'translateX(0px)',
 					},
 				},
 			},
 			animation: {
 				'fade-in-right': 'fade-in-right 0.5s ease-in',
-				'fade-in-down': 'fade-in-down 0.4s ease-in',
+				'fade-in-left': 'fade-in-left 0.4s ease-in',
 			},
 		},
 	},

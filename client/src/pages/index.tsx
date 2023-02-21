@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Header from '@/components/Header/Header';
 import Presentation from '@/components/Presentation';
-import { getAllImgUrl } from '@/lib/queries';
-import { client } from '@/lib/client';
 import axios from 'axios';
+
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 function Home({ imgUrls }: any) {
 	const style = {
@@ -36,7 +36,7 @@ function Home({ imgUrls }: any) {
 	);
 }
 export const getServerSideProps = async () => {
-	const res = await axios.get(`http://localhost:3000/api/fetch-images`);
+	const res = await axios.get(`${BASE_URL}/api/fetch-images`);
 	return {
 		props: {
 			imgUrls: res.data,

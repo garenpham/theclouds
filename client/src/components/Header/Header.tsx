@@ -46,7 +46,7 @@ const Header = (props: Props) => {
 		contact: `text-sm md:text-xl text-center mt-1 md:mt-4 pb-1 md:pb-8`,
 		languages: `flex gap-2 justify-center`,
 		languages__btn: `bg-black/40 hover:bg-gray-200/20 text-white rounded-full active:bg-gray-200/20 active:scale-95 transition transform duration-200 ease-in mb-2`,
-		mobile: `animate-fade-in-down relative md:hidden text-white h-[12vh] w-screen flex`,
+		mobile: `animate-fade-in-left relative md:hidden text-white h-[12vh] w-screen flex`,
 		mobile__inactive: `hidden`,
 		mobile__imgWrapper: `h-0`,
 		mobile__img: `opacity-[14%] object-cover object-top`,
