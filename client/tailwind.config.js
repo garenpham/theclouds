@@ -21,6 +21,14 @@ module.exports = {
 						transform: 'translateX(0)',
 					},
 				},
+				'fade-in': {
+					'0%': {
+						opacity: '0.2',
+					},
+					'100%': {
+						opacity: '0.3',
+					},
+				},
 				'fade-in-left': {
 					'0%': {
 						opacity: '0.4',
@@ -34,6 +42,7 @@ module.exports = {
 			},
 			animation: {
 				'fade-in-right': 'fade-in-right 0.5s ease-in',
+				'fade-in': 'fade-in 0.4s ease-in',
 				'fade-in-left': 'fade-in-left 0.4s ease-in',
 			},
 		},

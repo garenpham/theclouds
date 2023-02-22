@@ -1,149 +1,78 @@
 import Image from 'next/image';
-import { Babylonica } from '@next/font/google';
-import Link from 'next/link';
-import { ImFacebook2 } from 'react-icons/im';
-import { useRouter } from 'next/router';
-import en from './en';
-import vi from './vi';
-import { useState } from 'react';
-import { SlMenu } from 'react-icons/sl';
-import { BsArrowRight } from 'react-icons/bs';
+import { babylonica } from '@/lib/fonts';
+import { playfairDisplay } from '@/lib/fonts';
+import { useState, useRef, useEffect } from 'react';
 
-const babylonica = Babylonica({ weight: ['400'], subsets: ['latin'] });
-
-type Props = {};
-const Header = (props: Props) => {
-	const router = useRouter();
-	const { locale } = router;
-	const t = locale === 'en' ? en : vi;
-	const changeLanguage = (e: any) => {
-		const locale = e.target.value;
-		router.push('/', '/', { locale });
-	};
-	const [isActive, setIsActive] = useState(false);
-
-	const switchNav = () => {
-		if (!isActive) {
-			setIsActive(true);
-		} else {
-			setIsActive(false);
+type Props = {
+	imgUrls: any;
+};
+function Header({ imgUrls }: Props) {
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const timeoutRef: any = useRef(null);
+	function resetTimeout() {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
 		}
-		console.log(isActive);
+	}
+	const delay = 10000;
+	useEffect(() => {
+		resetTimeout();
+		timeoutRef.current = setTimeout(
+			() =>
+				setCurrentIndex((prevCurrentIndex) =>
+					prevCurrentIndex === imgUrls.length - 1 ? 0 : prevCurrentIndex + 1,
+				),
+			delay,
+		);
+		return () => {
+			resetTimeout();
+		};
+	}, [currentIndex]);
+	const style = {
+		wrapper: `relative bg-black`,
+		img__container: `flex flex-row mt-[12vh] md:mt-0 md:ml-[20vw]`,
+		imgWrap: `hidden`,
+		activeimgWrap: `animate-fade-in relative w-full h-[32vh] md:h-[90vh] opacity-30`,
+		title__container: `text-white flex flex-col justify-center items-center absolute w-full h-[32vh] md:w-[80vw] md:h-[90vh]`,
+		title: `text-2xl md:text-[4rem] tracking-[10px]`,
+		title__sub: `text-[3rem] md:text-[8rem] xl:text-[10rem] text-center`,
+		navigate: ``,
+		navigate__btn: ``,
 	};
 
-	const style = {
-		wrapper: `fixed top-0 bg-[#141414] z-20`,
-		container: `hidden md:block md:relative h-screen w-screen md:w-[20vw]`,
-		container__active: `animate-fade-in-right relative h-screen w-screen md:w-[20vw]`,
-		nav__container: `sticky h-screen flex flex-col justify-between text-white`,
-		nav__img: `opacity-[24%]`,
-		nav__title: `pt-8 text-7xl text-center`,
-		nav: `mt-[10vh] flex flex-col max-w-max gap-[2vh] text-center mx-auto pb-[10vh]`,
-		nav__links: `group bg-black/40 py-4 px-14 md:bg-transparent md:p-0 rounded-full active:text-yellow-400`,
-		nav__links__content: `text-lg md:text-4xl hover:opacity-80`,
-		nav__links__underline: `hidden md:block mt-4 max-w-0 group-hover:max-w-full h-0.5 bg-yellow-400 transition-all duration-400`,
-		icon: `text-2xl mx-auto`,
-		contact: `text-sm md:text-xl text-center mt-1 md:mt-4 pb-1 md:pb-8`,
-		languages: `flex gap-2 justify-center`,
-		languages__btn: `bg-black/40 hover:bg-gray-200/20 text-white rounded-full active:bg-gray-200/20 active:scale-95 transition transform duration-200 ease-in mb-2`,
-		mobile: `animate-fade-in-left relative md:hidden text-white h-[12vh] w-screen flex`,
-		mobile__inactive: `hidden`,
-		mobile__imgWrapper: `h-0`,
-		mobile__img: `opacity-[14%] object-cover object-top`,
-		mobile__container: `flex items-center w-screen justify-between px-6 z-0`,
-		mobile__title: `text-4xl flex`,
-		mobile__menuBtn: `text-2xl`,
-		mobile__menuClose: `block md:hidden mx-auto text-4xl`,
-	};
+	// console.log(imgUrls);
+
+	// let currentIndex = 1;
+
 	return (
 		<header className={style.wrapper}>
-			<div className={`${isActive ? style.mobile__inactive : style.mobile}`}>
-				<div className={style.mobile__imgWrapper}>
-					<Image
-						alt="navBackground"
-						src="/static/navbar.jpg"
-						fill
-						className={style.mobile__img}
-					/>
-				</div>
-
-				<div className={style.mobile__container}>
-					<h1 className={[babylonica.className, style.mobile__title].join(' ')}>
-						The Clouds
-					</h1>
-
-					<SlMenu
-						className={style.mobile__menuBtn}
-						onClick={switchNav}
-					/>
-				</div>
-			</div>
-			<div
-				className={`${!isActive ? style.container : style.container__active}`}>
-				<Image
-					alt="navBackground"
-					src="/static/navbar.jpg"
-					fill
-					className={style.nav__img}
-				/>
-
-				<div className={style.nav__container}>
-					<h1 className={[babylonica.className, style.nav__title].join(' ')}>
-						The Clouds
-						<p className="text-4xl">☁️</p>
-					</h1>
-
-					<nav className={style.nav}>
-						<Link
-							href="/menu"
-							className={style.nav__links}>
-							<span className={style.nav__links__content}>{t.nav1}</span>
-							<span className={style.nav__links__underline}></span>
-						</Link>
-						<Link
-							href="/special"
-							className={style.nav__links}>
-							<span className={style.nav__links__content}>{t.nav2}</span>
-							<span className={style.nav__links__underline}></span>
-						</Link>
-						<Link
-							href="/contact"
-							className={style.nav__links}>
-							<span className={style.nav__links__content}>{t.nav3}</span>
-							<span className={style.nav__links__underline}></span>
-						</Link>
-						<BsArrowRight
-							className={style.mobile__menuClose}
-							onClick={switchNav}
+			<div className={style.img__container}>
+				{imgUrls.map((item: any, idx: any) => (
+					<div
+						className={`${
+							currentIndex === idx ? style.activeimgWrap : style.imgWrap
+						}`}
+						key={idx}>
+						<Image
+							alt="pho"
+							src={item.image.asset.url}
+							fill
+							className="object-cover"
 						/>
-					</nav>
-
-					<div>
-						<ImFacebook2 className={style.icon} />
-						<div className={style.contact}>
-							<div>6940 Victoria Drive</div>
-							<div>Vancouver, BC V5P 3Y8, Canada</div>
-							<a href="tel:7788922256">Tel: (+1) 778-892-2256</a>
-						</div>
-						<div className={style.languages}>
-							<button
-								value="en"
-								onClick={changeLanguage}
-								className={`${style.languages__btn} px-1`}>
-								en
-							</button>
-
-							<button
-								value="vi"
-								onClick={changeLanguage}
-								className={`${style.languages__btn} px-[0.34rem]`}>
-								vi
-							</button>
-						</div>
 					</div>
+				))}
+				<div className={` ${style.title__container}`}>
+					<h1 className={`${playfairDisplay.className} ${style.title}`}>
+						Authentic
+					</h1>
+					<p className={`${babylonica.className} ${style.title__sub}`}>
+						Vietnamese Cusine
+					</p>
 				</div>
+				<div className={style.navigate}></div>
 			</div>
 		</header>
 	);
-};
+}
+
 export default Header;

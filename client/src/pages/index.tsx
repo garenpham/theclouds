@@ -1,13 +1,13 @@
 import Head from 'next/head';
+import Nav from '@/components/Nav/Nav';
 import Header from '@/components/Header/Header';
-import Presentation from '@/components/Presentation';
 import axios from 'axios';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 function Home({ imgUrls }: any) {
 	const style = {
-		content: `mt-[12vh] md:mt-0 md:ml-[20vw]`,
+		content: ``,
 	};
 	return (
 		<>
@@ -27,11 +27,12 @@ function Home({ imgUrls }: any) {
 				/>
 			</Head>
 
-			<Header />
+			<Nav />
+			<Header imgUrls={imgUrls} />
 
-			<main className={style.content}>
-				<Presentation imgUrls={imgUrls} />
-			</main>
+			{/* <section id="featured">
+				<Featured />
+			</section> */}
 		</>
 	);
 }
