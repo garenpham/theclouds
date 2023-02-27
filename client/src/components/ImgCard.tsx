@@ -7,7 +7,7 @@ type Props = {
 };
 function imgCard({ imgSrc, name, price }: Props) {
 	const style = {
-		wrapper: `min-w-[60vw] md:min-w-[13vw] h-[40vh] md:h-[34vh] text-center px-1 pt-4 pb-2 hover:shadow-lg scale-95 hover:scale-100 transition transform duration-200 ease-in flex flex-col`,
+		wrapper: `min-w-[60vw] md:min-w-[13vw] h-[40vh] md:h-[34vh] text-center pt-2 px-1 md:pt-4 pb-2 md:hover:shadow-lg md:scale-95 md:hover:scale-100 transition transform duration-200 ease-in flex flex-col`,
 		imgWrapper: `relative w-full h-full mb-4`,
 		img: `object-cover object-center rounded-t-lg`,
 		name: `md:text-3xl`,
