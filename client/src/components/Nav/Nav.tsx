@@ -87,7 +87,7 @@ const Nav = (props: Props) => {
 
 				<div className={style.nav__container}>
 					<Link
-						href="#header"
+						href="/"
 						className={[babylonica.className, style.nav__title].join(' ')}>
 						The Clouds
 						<p className="text-4xl">☁️</p>
