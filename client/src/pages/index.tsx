@@ -2,13 +2,16 @@ import Head from 'next/head';
 import Nav from '@/components/Nav/Nav';
 import Header from '@/components/Header/Header';
 import axios from 'axios';
+import Menu from '@/components/Menu/Menu';
+import Specials from '@/components/Specials/Specials';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-function Home({ imgUrls }: any) {
+function Home({ imgUrls, imgGallery, imgSpecials }: any) {
 	const style = {
-		content: ``,
+		sections: `md:ml-[20vw]`,
 	};
+	//console.log(imgUrls[0].image.asset.url);
 	return (
 		<>
 			<Head>
@@ -27,20 +30,45 @@ function Home({ imgUrls }: any) {
 				/>
 			</Head>
 
-			<Nav />
-			<Header imgUrls={imgUrls} />
+			<section id="nav">
+				<Nav />
+			</section>
 
-			{/* <section id="featured">
-				<Featured />
-			</section> */}
+			<section
+				id="header"
+				className={style.sections}>
+				<Header imgUrls={imgGallery} />
+			</section>
+
+			<section
+				id="specials"
+				className={style.sections}>
+				<Specials imgUrls={imgSpecials} />
+			</section>
+
+			<section
+				id="menu"
+				className={style.sections}>
+				<Menu imgUrls={imgUrls} />
+			</section>
 		</>
 	);
 }
 export const getServerSideProps = async () => {
-	const res = await axios.get(`${BASE_URL}/api/fetch-images`);
+	const resGetAllImgUrls = await axios.get(`${BASE_URL}/api/fetch-all-images`);
+	const resGetAllGallery = await axios.get(`${BASE_URL}/api/fetch-all-gallery`);
+	const resGetAllSpecials = await axios.get(
+		`${BASE_URL}/api/fetch-all-specials`,
+	);
+	// const resGetSpecificImgUrl = await axios.get(
+	// 	`${BASE_URL}/api/fetch-specific-image/slideimg3`,
+	// );
 	return {
 		props: {
-			imgUrls: res.data,
+			imgUrls: resGetAllImgUrls.data,
+			imgGallery: resGetAllGallery.data,
+			imgSpecials: resGetAllSpecials.data,
+			// specificImgUrl: resGetSpecificImgUrl.data,
 		},
 	};
 };

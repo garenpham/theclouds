@@ -26,7 +26,7 @@ const Nav = (props: Props) => {
 		} else {
 			setIsActive(false);
 		}
-		console.log(isActive);
+		//console.log(isActive);
 	};
 
 	const style = {
@@ -59,7 +59,7 @@ const Nav = (props: Props) => {
 				<div className={style.mobile__imgWrapper}>
 					<Image
 						alt="navBackground"
-						src="/static/navbar.jpg"
+						src="/static/wood.jpg"
 						fill
 						className={style.mobile__img}
 					/>
@@ -80,7 +80,7 @@ const Nav = (props: Props) => {
 				className={`${!isActive ? style.container : style.container__active}`}>
 				<Image
 					alt="navBackground"
-					src="/static/navbar.jpg"
+					src="/static/wood.jpg"
 					fill
 					className={style.nav__img}
 				/>
@@ -99,7 +99,7 @@ const Nav = (props: Props) => {
 							<span className={style.nav__links__underline}></span>
 						</Link>
 						<Link
-							href="/special"
+							href="#specials"
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav2}</span>
 							<span className={style.nav__links__underline}></span>

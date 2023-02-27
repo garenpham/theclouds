@@ -29,8 +29,8 @@ function Header({ imgUrls }: Props) {
 		};
 	}, [currentIndex]);
 	const style = {
-		wrapper: `relative bg-black`,
-		img__container: `flex flex-row mt-[12vh] md:mt-0 md:ml-[20vw]`,
+		wrapper: `bg-black`,
+		img__container: `flex flex-row mt-[12vh] md:mt-0`,
 		imgWrap: `hidden`,
 		activeimgWrap: `animate-fade-in relative w-full h-[32vh] md:h-[90vh] opacity-30`,
 		title__container: `text-white flex flex-col justify-center items-center absolute w-full h-[32vh] md:w-[80vw] md:h-[90vh]`,
@@ -41,8 +41,6 @@ function Header({ imgUrls }: Props) {
 	};
 
 	// console.log(imgUrls);
-
-	// let currentIndex = 1;
 
 	return (
 		<header className={style.wrapper}>
