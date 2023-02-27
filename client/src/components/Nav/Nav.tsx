@@ -86,14 +86,16 @@ const Nav = (props: Props) => {
 				/>
 
 				<div className={style.nav__container}>
-					<h1 className={[babylonica.className, style.nav__title].join(' ')}>
+					<Link
+						href="#header"
+						className={[babylonica.className, style.nav__title].join(' ')}>
 						The Clouds
 						<p className="text-4xl">☁️</p>
-					</h1>
+					</Link>
 
 					<nav className={style.nav}>
 						<Link
-							href="/menu"
+							href="#menu"
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav1}</span>
 							<span className={style.nav__links__underline}></span>
@@ -105,7 +107,7 @@ const Nav = (props: Props) => {
 							<span className={style.nav__links__underline}></span>
 						</Link>
 						<Link
-							href="/contact"
+							href="#footer"
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav3}</span>
 							<span className={style.nav__links__underline}></span>
