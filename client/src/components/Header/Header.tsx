@@ -32,10 +32,10 @@ function Header({ imgUrls }: Props) {
 		wrapper: `bg-black`,
 		img__container: `flex flex-row mt-[5rem] md:mt-0`,
 		imgWrap: `hidden`,
-		activeimgWrap: `animate-fade-in relative w-full h-[32vh] md:h-[90vh] opacity-30`,
+		activeimgWrap: `animate-fade-in relative w-full h-[32vh] md:h-[90vh] opacity-40 md:opacity-30`,
 		title__container: `text-white flex flex-col justify-center items-center absolute w-full h-[32vh] md:w-[80vw] md:h-[90vh]`,
-		title: `text-2xl md:text-[4rem] tracking-[10px]`,
-		title__sub: `text-[3rem] md:text-[8rem] xl:text-[10rem] text-center`,
+		title: `text-[1.6rem] md:text-2xl xl:text-[4rem] tracking-[10px]`,
+		title__sub: `text-[3.4rem] md:text-[8rem] xl:text-[10rem]`,
 		navigate: ``,
 		navigate__btn: ``,
 	};
