@@ -24,7 +24,7 @@ function Specials({ imgUrls }: Props) {
 		sub: `text-center text-2xl pt-4 pb-[3rem]`,
 		dishes: `flex overflow-x-scroll w-[70%] mx-auto scroll-smooth rounded-xl bg-[#ff9100]/10`,
 		arrow__container: `absolute w-full flex justify-between items-center top-[64%] px-[10%]`,
-		arrow: `cursor-pointer text-[2rem] bg-white/20 rounded-full hover:text-[#d68822] active:scale-75 transition transform duration-100 ease-in`,
+		arrow: `cursor-pointer text-[2rem] bg-[#ff9100]/10 rounded-full hover:text-[#d68822] active:scale-75 transition transform duration-100 ease-in`,
 	};
 	return (
 		<div className={style.wrapper}>
