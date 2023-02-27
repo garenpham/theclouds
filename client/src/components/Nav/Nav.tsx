@@ -7,7 +7,7 @@ import vi from './vi';
 import { useState } from 'react';
 import { SlMenu } from 'react-icons/sl';
 import { BsArrowRight } from 'react-icons/bs';
-import { babylonica } from '@/lib/fonts';
+import { babylonica } from '@/utils/fonts';
 
 type Props = {};
 const Nav = (props: Props) => {
@@ -44,7 +44,7 @@ const Nav = (props: Props) => {
 		contact: `text-sm md:text-xl text-center mt-1 md:mt-4 pb-1 md:pb-8`,
 		languages: `flex gap-2 justify-center`,
 		languages__btn: `bg-black/40 hover:bg-gray-200/20 text-white rounded-full active:bg-gray-200/20 active:scale-95 transition transform duration-200 ease-in mb-2`,
-		mobile: `animate-fade-in-left relative md:hidden text-white h-[12vh] w-screen flex`,
+		mobile: `animate-fade-in-left relative md:hidden text-white h-[5rem] w-screen flex`,
 		mobile__inactive: `hidden`,
 		mobile__imgWrapper: `h-0`,
 		mobile__img: `opacity-[14%] object-cover object-top`,
@@ -88,6 +88,7 @@ const Nav = (props: Props) => {
 				<div className={style.nav__container}>
 					<Link
 						href="/"
+						onClick={switchNav}
 						className={[babylonica.className, style.nav__title].join(' ')}>
 						The Clouds
 						<p className="text-4xl">☁️</p>
@@ -96,18 +97,21 @@ const Nav = (props: Props) => {
 					<nav className={style.nav}>
 						<Link
 							href="#menu"
+							onClick={switchNav}
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav1}</span>
 							<span className={style.nav__links__underline}></span>
 						</Link>
 						<Link
 							href="#specials"
+							onClick={switchNav}
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav2}</span>
 							<span className={style.nav__links__underline}></span>
 						</Link>
 						<Link
 							href="#footer"
+							onClick={switchNav}
 							className={style.nav__links}>
 							<span className={style.nav__links__content}>{t.nav3}</span>
 							<span className={style.nav__links__underline}></span>

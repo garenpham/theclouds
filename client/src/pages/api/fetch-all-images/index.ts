@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getAllImgUrl } from '@/lib/queries';
-import { client } from '@/lib/client';
+import { getAllImgUrl } from '@/utils/queries';
+import { client } from '@/utils/client';
 
 export default async function handler(
 	req: NextApiRequest,

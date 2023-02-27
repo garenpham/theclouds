@@ -7,10 +7,11 @@ type Props = {
 };
 function imgCard({ imgSrc, name, price }: Props) {
 	const style = {
-		wrapper: `min-w-[13vw] h-[34vh] text-center px-1 pt-4 pb-2 hover:shadow-lg scale-95 hover:scale-100 transition transform duration-200 ease-in flex flex-col`,
+		wrapper: `min-w-[60vw] md:min-w-[13vw] h-[40vh] md:h-[34vh] text-center px-1 pt-4 pb-2 hover:shadow-lg scale-95 hover:scale-100 transition transform duration-200 ease-in flex flex-col`,
 		imgWrapper: `relative w-full h-full mb-4`,
-		name: `text-xl`,
-		price: `font-bold`,
+		img: `object-cover object-center rounded-t-lg`,
+		name: `md:text-3xl`,
+		price: `md:text-xl font-bold`,
 	};
 	//console.log(imgSrc);
 	return (
@@ -20,7 +21,7 @@ function imgCard({ imgSrc, name, price }: Props) {
 					alt="signature dish"
 					src={imgSrc}
 					fill
-					className="object-cover object-center"
+					className={style.img}
 				/>
 			</div>
 			<div className={style.name}>{name}</div>

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { babylonica } from '@/lib/fonts';
-import { playfairDisplay } from '@/lib/fonts';
+import { babylonica } from '@/utils/fonts';
+import { playfairDisplay } from '@/utils/fonts';
 import { useState, useRef, useEffect } from 'react';
 
 type Props = {
@@ -30,7 +30,7 @@ function Header({ imgUrls }: Props) {
 	}, [currentIndex]);
 	const style = {
 		wrapper: `bg-black`,
-		img__container: `flex flex-row mt-[12vh] md:mt-0`,
+		img__container: `flex flex-row mt-[5rem] md:mt-0`,
 		imgWrap: `hidden`,
 		activeimgWrap: `animate-fade-in relative w-full h-[32vh] md:h-[90vh] opacity-30`,
 		title__container: `text-white flex flex-col justify-center items-center absolute w-full h-[32vh] md:w-[80vw] md:h-[90vh]`,

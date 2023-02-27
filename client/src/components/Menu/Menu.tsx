@@ -2,7 +2,7 @@ import styleCustom from './Menu.module.scss';
 import { useRef } from 'react';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import ImgCard from '../ImgCard';
-import { lobster } from '@/lib/fonts';
+import { lobster } from '@/utils/fonts';
 
 type Props = {
 	imgUrls: any;
@@ -21,9 +21,9 @@ function Menu({ imgUrls }: Props) {
 	};
 	const style = {
 		background: `bg-black mt-[7rem] text-white`,
-		title: `text-8xl z-20 tracking-[10px]`,
-		sub: `z-20 text-2xl`,
-		dishes: `flex overflow-x-scroll w-[84%] mx-auto scroll-smooth rounded-xl bg-black/30 z-20`,
+		title: `text-8xl z-10 tracking-[10px]`,
+		sub: `z-10 text-2xl`,
+		dishes: `flex overflow-x-scroll w-[84%] mx-auto scroll-smooth rounded-xl bg-black/30 z-10`,
 		arrow__container: `absolute w-full flex justify-between items-center top-[54%] px-[4%]`,
 		arrow: `cursor-pointer text-[2rem] bg-black/40 rounded-full hover:text-[#d68822] active:scale-75 transition transform duration-100 ease-in`,
 	};
