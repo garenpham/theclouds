@@ -19,8 +19,8 @@ function Specials({ imgUrls }: Props) {
 		}
 	};
 	const style = {
-		wrapper: `relative`,
-		title: `text-center text-4xl md:text-6xl tracking-[4px] md:tracking-[10px] mt-[4vh] md:mt-[10vh] text-[#d68822]`,
+		wrapper: `relative pt-[10vh]`,
+		title: `text-center text-4xl md:text-6xl tracking-[4px] md:tracking-[10px] text-[#d68822]`,
 		sub: `text-center text-sm font-semibold md:text-2xl pt-4 pb-[1rem] md:pb-[3rem]`,
 		dishes: `flex overflow-x-scroll w-[60%] md:w-[70%] mx-auto scroll-smooth rounded-xl bg-[#ff9100]/10`,
 		arrow__container: `absolute w-full flex justify-between items-center top-[60%] md:top-[64%] px-[10%]`,
